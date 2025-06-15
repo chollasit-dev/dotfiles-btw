@@ -121,7 +121,9 @@ if ! command -v yay &>/dev/null; then
 fi
 
 AUR=(
+  bemoji
   discord
+  fuzzel
   teamviewer
   wev # Debug Wayland events
   xdg-desktop-portal-termfilechooser-git
@@ -131,6 +133,14 @@ AUR=(
 for item in "${AUR[@]}"; do
   yay -S --noconfirm "$item"
 done
+
+#########################
+### Post installation ###
+#########################
+
+if command -v bemoji &>/dev/null; then
+  bemoji -D all
+fi
 
 ###############
 ### Cleanup ###
