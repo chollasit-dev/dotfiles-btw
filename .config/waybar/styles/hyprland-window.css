@@ -1,0 +1,11 @@
+#window {
+  padding: 0.5em 2em;
+  border: 1.25px solid alpha(@pink, 0.7);
+  border-radius: 0.5em;
+  background-image: linear-gradient(
+    to top,
+    alpha(@crust, 0.8),
+    alpha(@base, 0.6)
+  );
+  font-weight: 500;
+}
