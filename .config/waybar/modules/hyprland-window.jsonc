@@ -1,0 +1,83 @@
+{
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 64,
+    "separate-outputs": true,
+    "tooltip": false,
+    "rewrite": {
+      ////////////
+      // System //
+      ////////////
+      "": "<span foreground='#89b4fa'> </span> Hyprland",
+      "Authenticate": "<span foreground='#f38ba8'> </span> Authenticate",
+      /////////////////////
+      // Network Manager //
+      /////////////////////
+      "Network Connections": "<span foreground='#89b4fa'>󰤨 </span> Network Manager",
+      //////////////////
+      // File Manager //
+      //////////////////
+      "Dolphin": "<span foreground='#89b4fa'>󱢴 </span> Dolphin",
+      "(.*) — Dolphin": "<span foreground='#89b4fa'>󱢴 </span> Dolphin $1",
+      "Yazi: (.*)": "<span foreground='#f38ba8'>󰝰 </span> Yazi $1",
+      /////////////
+      // Browser //
+      /////////////
+      "(.*)Mozilla Firefox": "<span foreground='#f38ba8'>󰈹 </span> Firefox",
+      "(.*) — Mozilla Firefox": "<span foreground='#f38ba8'>󰈹 </span> $1",
+      "(.*)Brave": "<span foreground='#f38ba8'>󱤫 </span> Brave",
+      "(.*) - Brave": "<span foreground='#f38ba8'>󱤫 </span> $1",
+      /////////////
+      // Discord //
+      /////////////
+      "Discord(.*)": "Discord $1",
+      "(.*) - Discord": "<span foreground='#89b4fa'>  </span>Discord | $1 $2",
+      //////////////
+      // Terminal //
+      //////////////
+      "~": "  Terminal, bro...",
+      "chin@chollasit-dev:~": "  It's my terminal, bro...",
+      "zsh": "  Terminal",
+      "kitty": "  Terminal",
+      ////////////
+      // Coding //
+      ////////////
+      "n": "<span foreground='#a6e3a1'> </span> Neovim",
+      "n (.*)": "<span foreground='#a6e3a1'> </span> $1",
+      "nvim": "<span foreground='#a6e3a1'> </span> Neovim",
+      "nvim (.*)": "<span foreground='#a6e3a1'> </span> $1",
+      "vim": "<span foreground='#a6e3a1'> </span> Vim",
+      "vim (.*)": "<span foreground='#a6e3a1'> </span> $1",
+      ///////////
+      // Media //
+      ///////////
+      "(.*)Spotify": "<span foreground='#a6e3a1'> </span> Spotify",
+      "(.*)Spotify Premium": "<span foreground='#a6e3a1'> </span> Spotify Premium",
+      "OBS(.*) - Profile: (.*) - Scenes: (.*)": "<span foreground='#a6adc8'>󰻃 </span> OBS   $2  󰆠 $3",
+      "VLC media player": "<span foreground='#fab387'>󰕼 </span> VLC Media Player",
+      "(.*) - VLC media player": "<span foreground='#fab387'>󰕼 </span> VLC  $1",
+      "(.*) - mpv": "<span foreground='#cba6f7'> </span> mpv  $1",
+      //////////////////
+      // Office Suite //
+      //////////////////
+      "ONLYOFFICE": "<span foreground='#f38ba8'> </span> ONLYOFFICE | Microsoft Office Alternative",
+      "(.*).doc": "<span foreground='#89b4fa'>󰈭 </span> $1.doc",
+      "(.*).docx": "<span foreground='#89b4fa'>󰈭 </span> $1.docx",
+      "(.*).xls": "<span foreground='#a6e3a1'>󰈜 </span> $1.xls",
+      "(.*).xlsx": "<span foreground='#a6e3a1'>󰈜 </span> $1.xlsx",
+      "(.*).ppt": "<span foreground='#fab387'>󰈨 </span> $1.ppt",
+      "(.*).pptx": "<span foreground='#fab387'>󰈨 </span> $1.pptx",
+      "(.*).pdf": "<span foreground='#f38ba8'> </span> $1.pdf"
+    },
+    //////////////
+    // Graphics //
+    //////////////
+    //////////////////////
+    // Video Conference //
+    //////////////////////
+    /////////////
+    // Fallback //
+    //////////////
+    "^(.*)$": "<span foreground='#89b4fa'> </span> $1"
+  }
+}
