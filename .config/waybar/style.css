@@ -1,0 +1,31 @@
+@import 'styles/theme.css';
+@import 'styles/bluetooth.css';
+@import 'styles/clock.css';
+@import 'styles/cpu.css';
+@import 'styles/hyprland-language.css';
+@import 'styles/hyprland-window.css';
+@import 'styles/hyprland-workspaces.css';
+@import 'styles/memory.css';
+@import 'styles/pulseaudio.css';
+
+* {
+  color: @text;
+  font-size: 1rem;
+  font-family: 'FiraCode Nerd Font';
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+/* .modules-left > widget:first-child > #workspaces { */
+/*   margin-left: 0; */
+/* } */
+
+/* If workspaces is the rightmost module, omit right margin */
+/* .modules-right > widget:last-child > #workspaces { */
+/*   margin-right: 0; */
+/* } */
+
+window#waybar {
+  background-color: transparent;
+  transition-duration: 0.5s;
+  transition-property: all;
+}

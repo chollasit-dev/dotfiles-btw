@@ -1,0 +1,44 @@
+{
+  "hyprland/workspaces": {
+    "active-only": false, // default: false
+    "show-special": true, // default: false
+    "special-visible-only": false, // default: false
+    "format": "{icon}",
+    ////////////////
+    // Decoration //
+    ////////////////
+    "format-icons": {
+      "1": "󰲡",
+      "2": "󰲣",
+      "3": "󰲥",
+      "4": "󰲧",
+      "5": "󰲩",
+      "default": "",
+      "active": "<span foreground='#f5c2e7'></span>",
+      "empty": "",
+      "urgent": "",
+      // Special
+      "note": "",
+      "brave": "",
+      "discord": "",
+      "line": "",
+      "social": "",
+      "game": "󰸸",
+      "player": "",
+      "zoom": "󰍫"
+    },
+    "persistent-workspaces": {
+      "*": [
+        "note",
+        "brave",
+        "discord",
+        "line",
+        "social",
+        "game",
+        "player",
+        "scratchpad",
+        "zoom"
+      ]
+    }
+  }
+}

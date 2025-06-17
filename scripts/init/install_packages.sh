@@ -62,6 +62,7 @@ PRODUCTIVITY=(
 )
 
 CUSTOMIZATION=(
+  waybar
 )
 
 DEV_NULL=(

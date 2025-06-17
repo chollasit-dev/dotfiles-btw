@@ -1,0 +1,10 @@
+#language {
+  padding: 0 1em;
+  border: 1.25px solid alpha(@surface0, 0.8);
+  border-radius: 0.5em;
+  background-image: linear-gradient(
+    to top,
+    alpha(@crust, 0.8),
+    alpha(@surface0, 0.6)
+  );
+}
