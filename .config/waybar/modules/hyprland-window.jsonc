@@ -19,7 +19,6 @@
       //////////////////
       "Dolphin": "<span foreground='#89b4fa'>󱢴 </span> Dolphin",
       "(.*) — Dolphin": "<span foreground='#89b4fa'>󱢴 </span> Dolphin $1",
-      "Yazi: (.*)": "<span foreground='#f38ba8'>󰝰 </span> Yazi $1",
       /////////////
       // Browser //
       /////////////
@@ -39,9 +38,26 @@
       "chin@chollasit-dev:~": "  It's my terminal, bro...",
       "zsh": "  Terminal",
       "kitty": "  Terminal",
-      ////////////
-      // Coding //
-      ////////////
+      /////////
+      // CLI //
+      /////////
+      "Yazi: (.*)": "<span foreground='#f38ba8'>󰝰 </span> Yazi $1",
+      "nix-(.*)": "<span foreground='#89b4fa'> </span> nix$1",
+      "nix (.*)": "<span foreground='#89b4fa'> </span> nix $1",
+      "node (.*)": "<span foreground='#a6e3a1'> </span> node $1",
+      "nodemon (.*)": "<span foreground='#a6e3a1'> </span> nodemon $1",
+      "npm (.*)": "<span foreground='#f38ba8'> </span> npm $1",
+      "yarn (.*)": "<span foreground='#89b4fa'> </span> yarn $1",
+      "pnpm (.*)": "<span foreground='#fab387'> </span> pnpm $1",
+      "go (.*)": "<span foreground='#89b4fa'> </span> go $1",
+      "make (.*)": "<span foreground='#fab387'> </span> make $1",
+      "cmake (.*)": "<span foreground='#fab387'> </span> cmake $1",
+      "python(.*)": "<span foreground='#fab387'> </span> Python$1",
+      "litecli (.*)": "<span foreground='#89b4fa'> </span> liteCLI $1",
+      "pgcli (.*)": "<span foreground='#89b4fa'> </span> pgCLI $1",
+      //////////////////
+      // (Neo)Vim Btw //
+      //////////////////
       "n": "<span foreground='#a6e3a1'> </span> Neovim",
       "n (.*)": "<span foreground='#a6e3a1'> </span> $1",
       "nvim": "<span foreground='#a6e3a1'> </span> Neovim",

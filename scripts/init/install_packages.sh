@@ -61,7 +61,11 @@ PRODUCTIVITY=(
   taskwarrior-tui
 )
 
+# NOTE: `/usr/share/{icons,themes}`
 CUSTOMIZATION=(
+  arc-gtk-theme
+  catppuccin-cursors-mocha
+  catppuccin-gtk-theme-mocha
   waybar
 )
 
