@@ -139,6 +139,16 @@ for item in "${AUR[@]}"; do
   yay -S --noconfirm "$item"
 done
 
+###############
+### Flatpak ###
+###############
+
+if ! command -v flatpak &>/dev/null; then
+  echo "flatpak not found, install flatpak first" && exit 1
+fi
+
+flatpak install flathub com.usebottles.bottles
+
 #########################
 ### Post installation ###
 #########################
