@@ -1,0 +1,20 @@
+{
+  "network": {
+    "family": "ipv4_6",
+    "format": "",
+    "format-disabled": "",
+    "format-disconnected": "󰤭",
+    "format-ethernet": "{bandwidthTotalOctets} 󱚻 | ",
+    "format-wifi": "{bandwidthTotalOctets} 󱚻 | 󰤥",
+    "format-icons": [
+      "󰤟",
+      "󰤢",
+      "󰤨"
+    ],
+    "format-alt": "{bandwidthUpOctets} 󱚺 | {bandwidthDownOctets} 󱚶",
+    "interval": 5,
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-ethernet": "⌂  {ipaddr}⌂  /{cidr}\r󱚶  {bandwidthDownBytes}",
+    "tooltip-format-wifi": "{essid} | {signalStrength}% 󰤥"
+  }
+}

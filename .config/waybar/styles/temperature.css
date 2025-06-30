@@ -1,0 +1,15 @@
+#temperature {
+  padding: 0 1em;
+  border: 1.25px solid alpha(@mantle, 0.8);
+  border-radius: 0.5em;
+  background-image: linear-gradient(
+    to top,
+    alpha(@crust, 0.8),
+    alpha(@surface0, 0.6)
+  );
+  transition: all 0.2s;
+}
+
+#temperature.critical {
+  color: @red;
+}
