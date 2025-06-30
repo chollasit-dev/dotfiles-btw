@@ -41,6 +41,8 @@
       /////////
       // CLI //
       /////////
+      "yay": "<span foreground='#89b4fa'>󰣇 </span>",
+      "yay (.*)": "<span foreground='#89b4fa'>󰣇 </span> yay $1",
       "Yazi: (.*)": "<span foreground='#f38ba8'>󰝰 </span> Yazi $1",
       "nix-(.*)": "<span foreground='#89b4fa'> </span> nix$1",
       "nix (.*)": "<span foreground='#89b4fa'> </span> nix $1",
@@ -54,7 +56,8 @@
       "cmake (.*)": "<span foreground='#fab387'> </span> cmake $1",
       "python(.*)": "<span foreground='#fab387'> </span> Python$1",
       "litecli (.*)": "<span foreground='#89b4fa'> </span> liteCLI $1",
-      "pgcli (.*)": "<span foreground='#89b4fa'> </span> pgCLI $1",
+      "pgcli (.*)": "<span foreground='#89b4fa'> </span> pgcli $1",
+      "(.*)Gemini(.*)": "<span foreground='#89b4fa'>󰫢 </span> Gemini",
       //////////////////
       // (Neo)Vim Btw //
       //////////////////
@@ -73,6 +76,10 @@
       "VLC media player": "<span foreground='#fab387'>󰕼 </span> VLC Media Player",
       "(.*) - VLC media player": "<span foreground='#fab387'>󰕼 </span> VLC  $1",
       "(.*) - mpv": "<span foreground='#cba6f7'> </span> mpv  $1",
+      //////////
+      // Game //
+      //////////
+      "Bottles": "<span foreground='#f38ba8'>󱁰 </span> Bottles",
       //////////////////
       // Office Suite //
       //////////////////
