@@ -2,6 +2,7 @@
   "include": [
     "~/.config/waybar/modules/bluetooth.jsonc",
     "~/.config/waybar/modules/clock.jsonc",
+    "~/.config/waybar/modules/custom-notification.jsonc",
     "~/.config/waybar/modules/hyprland-language.jsonc",
     "~/.config/waybar/modules/hyprland-window.jsonc",
     "~/.config/waybar/modules/hyprland-workspaces.jsonc",
@@ -28,7 +29,8 @@
     "network",
     "pulseaudio",
     "bluetooth",
-    "clock"
+    "clock",
+    "custom/notification"
   ],
   "memory": {
     "format": "{used:0.1f}G {percentage}% ",
