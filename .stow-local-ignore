@@ -26,4 +26,5 @@ _darcs
 ^/scripts/init
 ^/secrets    # Shhh!...
 
+flake.*      # For tools use when customizing GTK widgets
 .*.md
