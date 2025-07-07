@@ -21,9 +21,9 @@
         nixd
 
         # devtool
-        cloc
         bruno
         bruno-cli
+        cloc
         docker
         docker-buildx
         lazydocker
@@ -43,12 +43,6 @@
         btop
         fastfetch
         # btop-rocm # Conflict with standard `btop`
-      ];
-    };
-
-    devShells.${arch}.default = pkgs.mkShell {
-      buildInputs = with pkgs; [
-        fastfetch
       ];
     };
   };
