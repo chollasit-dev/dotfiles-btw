@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+#####################
+### Pre-requisite ###
+#####################
+
+if command -v dunst &>/dev/null; then
+  yay -Rns dunst --noconfirm
+fi
+
 ##############
 ### Pacman ###
 ##############
@@ -66,6 +74,7 @@ CUSTOMIZATION=(
   arc-gtk-theme
   catppuccin-cursors-mocha
   catppuccin-gtk-theme-mocha
+  swaync
   waybar
 )
 
