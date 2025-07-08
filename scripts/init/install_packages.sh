@@ -24,9 +24,10 @@ LOW_LEVEL=(
   anacron
   bat
   bluetui
-  carapace
   bluez
   bluez-utils
+  brightnessctl
+  carapace
   less
   lsd
   tldr
@@ -56,7 +57,9 @@ ADDITIONAL_LOW_LEVEL=(
 )
 
 UTILITIES=(
+  hyprpicker
   obs-studio
+  satty   # image annotation from stdin
   udiskie # auto mount/unmount handler
   vlc
 )
