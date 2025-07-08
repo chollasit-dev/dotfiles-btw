@@ -10,6 +10,10 @@
   transition: all 0.2s;
 }
 
+#network:hover {
+  background-color: @surface2;
+}
+
 #network.disconnected {
   border-color: @mantle;
 }
