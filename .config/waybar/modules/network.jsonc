@@ -13,8 +13,9 @@
     ],
     "format-alt": "{bandwidthUpOctets} 󱚺 | {bandwidthDownOctets} 󱚶",
     "interval": 5,
+    "on-click-right": "kitty -T '󰤥  Network Manager' zsh -c nmtui",
     "tooltip-format": "{ifname} via {gwaddr}",
-    "tooltip-format-ethernet": "⌂  {ipaddr}⌂  /{cidr}\r󱚶  {bandwidthDownBytes}",
+    "tooltip-format-ethernet": "  {ipaddr}  /{cidr}\r󱚶  {bandwidthDownBytes}",
     "tooltip-format-wifi": "{essid} | {signalStrength}% 󰤥"
   }
 }
