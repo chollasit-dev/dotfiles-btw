@@ -22,6 +22,7 @@ LOW_LEVEL=(
   carapace
   less
   lsd
+  pass
   tldr
   tree
   unzip
@@ -51,6 +52,7 @@ ADDITIONAL_LOW_LEVEL=(
 
 UTILITIES=(
   hyprpicker
+  mpv
   obs-studio
   satty   # image annotation from stdin
   udiskie # auto mount/unmount handler
@@ -58,26 +60,22 @@ UTILITIES=(
 )
 
 PRODUCTIVITY=(
-  brave-bin
   firefox
-  onlyoffice
   spotify-launcher
   taskwarrior-tui
 )
 
 # NOTE: `/usr/share/{icons,themes}`
 CUSTOMIZATION=(
-  arc-gtk-theme
-  catppuccin-cursors-mocha
-  catppuccin-gtk-theme-mocha
+  starship
   swaync
   waybar
 )
 
 DEV_NULL=(
-  fnm
+  fnm-bin
   github-cli
-  google-chrome
+  go
   zsh-syntax-highlighting
 )
 
@@ -131,9 +129,15 @@ if ! command -v yay &>/dev/null; then
 fi
 
 AUR=(
+  arc-gtk-theme
   bemoji
+  brave-bin
+  catppuccin-cursors-mocha
+  catppuccin-gtk-theme-mocha
   discord
   fuzzel
+  google-chrome
+  onlyoffice-bin
   teamviewer
   wev # Debug Wayland events
   xdg-desktop-portal-termfilechooser-git
