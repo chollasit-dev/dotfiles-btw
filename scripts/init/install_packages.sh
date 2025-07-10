@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-#####################
-### Pre-requisite ###
-#####################
-
-if command -v dunst &>/dev/null; then
-  yay -Rns dunst --noconfirm
-fi
-
 ##############
 ### Pacman ###
 ##############
@@ -39,6 +31,7 @@ LOW_LEVEL=(
 )
 
 ADDITIONAL_LOW_LEVEL=(
+  flatpak
   stow
   xdg-desktop-portal-gtk
 
@@ -155,11 +148,9 @@ done
 ### Flatpak ###
 ###############
 
-if ! command -v flatpak &>/dev/null; then
-  echo "flatpak not found, install flatpak first" && exit 1
+if command -v flatpak &>/dev/null; then
+  flatpak install flathub com.usebottles.bottles
 fi
-
-flatpak install flathub com.usebottles.bottles
 
 #########################
 ### Post installation ###
@@ -169,8 +160,20 @@ if command -v bemoji &>/dev/null; then
   bemoji -D all
 fi
 
+UNUSED_PREINSTALLED=(
+  dunst
+  wofi
+)
+
+for item in "${UNUSED_PREINSTALLED[@]}"; do
+  if command -v "$item" &>/dev/null; then
+    yay -Rns "$item" --noconfirm
+  fi
+done
+
 ###############
 ### Cleanup ###
 ###############
 
 unset -v ADDITIONAL_LOW_LEVEL AUR CUSTOMIZATION DEV_NULL LOW_LEVEL PRODUCTIVITY SETTINGS TYPOGRAPHY UTILITIES
+unset -v UNUSED_PREINSTALLED
