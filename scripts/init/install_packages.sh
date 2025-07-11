@@ -32,6 +32,7 @@ LOW_LEVEL=(
 )
 
 ADDITIONAL_LOW_LEVEL=(
+  btop
   flatpak
   stow
   xdg-desktop-portal-gtk
@@ -76,6 +77,8 @@ DEV_NULL=(
   fnm-bin
   github-cli
   go
+  neovim
+  rustup # Why...
   zsh-syntax-highlighting
 )
 
@@ -129,19 +132,28 @@ if ! command -v yay &>/dev/null; then
 fi
 
 AUR=(
-  arc-gtk-theme
+  # Utilities
   bemoji
-  brave-bin
+  fuzzel
+  wev # Debug Wayland events
+  xdg-desktop-portal-termfilechooser-git
+
+  # Customization
+  arc-gtk-theme
   catppuccin-cursors-mocha
   catppuccin-gtk-theme-mocha
+
+  # Productivity
+  brave-bin
   discord
-  fuzzel
   google-chrome
   onlyoffice-bin
   teamviewer
-  wev # Debug Wayland events
-  xdg-desktop-portal-termfilechooser-git
   zoom
+
+  # /dev/null
+  postman-bin
+  yaak-bin
 )
 
 for item in "${AUR[@]}"; do

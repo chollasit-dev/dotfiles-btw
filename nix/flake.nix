@@ -12,37 +12,18 @@
     packages.${arch}.default = pkgs.buildEnv {
       name = "my-cereal-flake-btw";
       paths = with pkgs; [
-        # Package manager
-        cargo
-        corepack_latest
-
         # language related
-        neovim
         nixd
 
         # devtool
-        bruno
-        bruno-cli
         cloc
         docker
         docker-buildx
         lazydocker
         litecli
-        mongosh
-        newman
-        nodePackages_latest.vercel
         pgcli
         posting
         tig
-
-        # WARN: not free
-        ngrok
-        postman
-
-        # NOTE: current `yay` mirror URL not works
-        btop
-        fastfetch
-        # btop-rocm # Conflict with standard `btop`
       ];
     };
   };
