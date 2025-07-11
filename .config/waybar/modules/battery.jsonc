@@ -1,0 +1,22 @@
+{
+  "battery": {
+    "format": "{power}W {capacity}% {icon}",
+    "format-charging": "{power}W {capacity}% 󰂄",
+    "format-icons": {
+      "full": "󰁹",
+      "plenty": "󰂀",
+      "half": "󰁾",
+      "warning": "󰁼",
+      "critical": "󰁺"
+    },
+    "interval": 3, // Less than to CPU and RAM
+    "states": {
+      "full": 100,
+      "plenty": 70,
+      "half": 50,
+      "warning": 30,
+      "critical": 15
+    },
+    "tooltip-format": "{timeTo}\nCharge cycles: {cycles}\nHealth: {health}"
+  }
+}
