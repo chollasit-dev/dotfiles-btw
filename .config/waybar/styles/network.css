@@ -1,6 +1,6 @@
 #network {
   padding: 0 1em;
-  border: 1.25px solid alpha(@surface2, 0.8);
+  border: 1.25px solid transparent;
   border-radius: 0.5em;
   background-image: linear-gradient(
     to top,
@@ -19,9 +19,32 @@
 }
 
 #network.ethernet {
-  border-color: alpha(@pink, 0.8);
+  background-image: linear-gradient(
+    to top,
+    alpha(@mauve, 1),
+    alpha(@pink, 0.8)
+  );
+  background-color: @pink;
+  color: @mantle;
+}
+
+#network.ethernet:hover {
+  background-image: none;
+  background-color: @pink;
 }
 
 #network.wifi {
-  border-color: alpha(@blue, 0.8);
+  border-color: transparent;
+  background-image: linear-gradient(
+    to top,
+    alpha(@blue, 0.8),
+    alpha(@lavender, 0.8)
+  );
+  background-color: @blue;
+  color: @mantle;
+}
+
+#network.wifi:hover {
+  background-image: none;
+  background-color: @lavender;
 }
