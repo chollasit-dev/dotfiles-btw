@@ -1,55 +1,116 @@
-{
-  "include": [
-    "~/.config/waybar/modules/bluetooth.jsonc",
-    "~/.config/waybar/modules/clock.jsonc",
-    "~/.config/waybar/modules/custom-notification.jsonc",
-    "~/.config/waybar/modules/hyprland-language.jsonc",
-    "~/.config/waybar/modules/hyprland-window.jsonc",
-    "~/.config/waybar/modules/hyprland-workspaces.jsonc",
-    "~/.config/waybar/modules/network.jsonc",
-    "~/.config/waybar/modules/pulseaudio.jsonc",
-    "~/.config/waybar/modules/temperature.jsonc"
-  ],
-  "reload_style_on_change": true,
-  "layer": "top",
-  "margin-left": 16,
-  "margin-right": 16,
-  "margin-top": 16,
-  "spacing": 4,
-  "modules-left": [
-    "hyprland/workspaces",
-    "temperature",
-    "memory",
-    "cpu"
-  ],
-  "modules-center": [
-    "hyprland/window"
-  ],
-  "modules-right": [
-    "network",
-    "pulseaudio",
-    "bluetooth",
-    "clock",
-    "custom/notification"
-  ],
-  "memory": {
-    "format": "{used:0.1f}G {percentage}% ",
-    "states": {
-      "medium": 15,
-      "warning": 75,
-      "critical": 90
+// Multiple-monitors setup: https://github.com/Alexays/Waybar/wiki/Configuration
+[
+  {
+    "output": [
+      "HDMI-A-1"
+    ],
+    "include": [
+      "~/.config/waybar/modules/bluetooth.jsonc",
+      "~/.config/waybar/modules/clock.jsonc",
+      "~/.config/waybar/modules/custom-notification.jsonc",
+      "~/.config/waybar/modules/hyprland-language.jsonc",
+      "~/.config/waybar/modules/hyprland-window.jsonc",
+      "~/.config/waybar/modules/hyprland-workspaces.jsonc",
+      "~/.config/waybar/modules/network.jsonc",
+      "~/.config/waybar/modules/pulseaudio.jsonc",
+      "~/.config/waybar/modules/temperature.jsonc"
+    ],
+    "reload_style_on_change": true,
+    "layer": "top",
+    "margin-left": 16,
+    "margin-right": 16,
+    "margin-top": 16,
+    "spacing": 4,
+    "modules-left": [
+      "hyprland/workspaces",
+      "temperature",
+      "memory",
+      "cpu"
+    ],
+    "modules-center": [
+      "hyprland/window"
+    ],
+    "modules-right": [
+      "network",
+      "pulseaudio",
+      "bluetooth",
+      "hyprland/language",
+      "clock",
+      "custom/notification"
+    ],
+    "memory": {
+      "format": "{used:0.1f}G {percentage}% ",
+      "states": {
+        "medium": 15,
+        "warning": 75,
+        "critical": 90
+      }
+    },
+    "cpu": {
+      "format": "{usage}% {avg_frequency}GHz ",
+      "states": {
+        "medium": 15,
+        "warning": 75,
+        "critical": 90
+      }
+    },
+    "temperature": {
+      "critical-threshold": 75,
+      "format": "{temperatureC}°C "
     }
   },
-  "cpu": {
-    "format": "{usage}% {avg_frequency}GHz ",
-    "states": {
-      "medium": 15,
-      "warning": 75,
-      "critical": 90
+  {
+    "output": [
+      "eDP-1"
+    ],
+    "include": [
+      "~/.config/waybar/modules/battery.jsonc",
+      "~/.config/waybar/modules/bluetooth.jsonc",
+      "~/.config/waybar/modules/clock.jsonc",
+      "~/.config/waybar/modules/custom-notification.jsonc",
+      "~/.config/waybar/modules/hyprland-language.jsonc",
+      "~/.config/waybar/modules/hyprland-workspaces.jsonc",
+      "~/.config/waybar/modules/network.jsonc",
+      "~/.config/waybar/modules/pulseaudio.jsonc"
+    ],
+    "reload_style_on_change": true,
+    "layer": "top",
+    "height": 35,
+    "margin-left": 16,
+    "margin-right": 16,
+    "margin-top": 16,
+    "spacing": 2,
+    "modules-left": [
+      "network",
+      "battery",
+      "memory",
+      "cpu"
+    ],
+    "modules-center": [
+      "hyprland/workspaces"
+    ],
+    "modules-right": [
+      "pulseaudio",
+      "bluetooth",
+      "hyprland/language",
+      "clock",
+      "custom/notification"
+    ],
+    "memory": {
+      "format": "{used:0.1f}G {percentage}% ",
+      "states": {
+        "medium": 15,
+        "warning": 75,
+        "critical": 90
+      }
+    },
+    "cpu": {
+      "format": "{usage}% {avg_frequency}GHz ",
+      "states": {
+        "medium": 15,
+        "warning": 75,
+        "critical": 90
+      }
     }
-  },
-  "temperature": {
-    "critical-threshold": 75,
-    "format": "{temperatureC}°C "
   }
-}
+]
