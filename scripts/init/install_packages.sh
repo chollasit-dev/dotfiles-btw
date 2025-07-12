@@ -68,6 +68,7 @@ PRODUCTIVITY=(
 
 # NOTE: `/usr/share/{icons,themes}`
 CUSTOMIZATION=(
+  hyprlock
   starship
   swaync
   waybar
