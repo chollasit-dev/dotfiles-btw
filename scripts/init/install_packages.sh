@@ -137,6 +137,7 @@ AUR=(
   fuzzel
   wev # Debug Wayland events
   xdg-desktop-portal-termfilechooser-git
+  clipse
 
   # Customization
   arc-gtk-theme
