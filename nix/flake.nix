@@ -5,26 +5,27 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
+  outputs = {nixpkgs, ...}: let
     arch = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${arch};
+    langs = with pkgs; [nixd];
+    tools = with pkgs; [
+      cloc
+      docker
+      docker-buildx
+      lazydocker
+      litecli
+      pgcli
+      posting
+      tig
+    ];
   in {
-    packages.${arch}.default = pkgs.buildEnv {
-      name = "my-cereal-flake-btw";
-      paths = with pkgs; [
-        # language related
-        nixd
-
-        # devtool
-        cloc
-        docker
-        docker-buildx
-        lazydocker
-        litecli
-        pgcli
-        posting
-        tig
-      ];
+    packages.${arch} = rec {
+      global_cereal = pkgs.buildEnv {
+        name = "my-cereal-flake-btw";
+        paths = langs ++ tools;
+      };
+      default = global_cereal;
     };
   };
 }
