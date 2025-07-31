@@ -15,15 +15,15 @@ fi
 
 case "$1" in
 1)
-  wf-recorder -f "$HOME/Videos/$CURRENT_DATE.mp4" -r 30 &&
-    notify-send "wf-recorder" "Recording started"
+  notify-send "wf-recorder" "Recording started" &&
+    wf-recorder -f "$HOME/Videos/$CURRENT_DATE.mp4" -r 30
   ;;
 2)
   if ! command -v slurp &>/dev/null; then
     notify-send "wf-recorder" "slurp not installed, aborting..."
   else
-    wf-recorder -g "$(slurp)" -f "$HOME/Videos/$CURRENT_DATE.mp4" -r 30 &&
-      notify-send "wf-recorder" "Recording started"
+    notify-send "wf-recorder" "Recording started" &&
+      wf-recorder -g "$(slurp)" -f "$HOME/Videos/$CURRENT_DATE.mp4" -r 30
   fi
   ;;
 *)
