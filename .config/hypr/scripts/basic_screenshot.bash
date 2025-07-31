@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
-basedir="$HOME/Pictures/screenshots/"
-filename="$(date +%Y%m%d_%T).jpg"
-extension="jpg"
+dirname="$HOME/Pictures/screenshots/"
+filename="$(date +%Y%m%d_%T)"
+ext="jpeg"
 
-mkdir -p "$basedir"
+mkdir -p "$dirname"
 
 case "$1" in
 1) # fastest default fullscreen
-  grim -t jpeg "$basedir$filename" &&
-    grim -t jpeg - | wl-copy &&
-    notify-send "Basic Screenshot" "Capture screenshot, copy to clipboard, and save at\r$basedir successfully"
+  grim -t "$ext" "$dirname$filename.$ext" &&
+    grim -t "$ext" - | wl-copy &&
+    notify-send "Basic Screenshot" "Capture screenshot, copy to clipboard, and save at\r$dirname successfully"
   ;;
 2) # specify capture dimension
   screen_dimension="$(slurp -d)"
 
-  grim -g "$screen_dimension" -t jpeg "$basedir$filename.$extension" &&
-    grim -g "$screen_dimension" -t jpeg - | wl-copy &&
-    notify-send "Basic Screenshot" "Capture screenshot, copy to clipboard, and save at\r$basedir successfully"
+  grim -g "$screen_dimension" -t "$ext" "$dirname$filename.$ext" &&
+    grim -g "$screen_dimension" -t "$ext" - | wl-copy &&
+    notify-send "Basic Screenshot" "Capture screenshot, copy to clipboard, and save at\r$dirname successfully"
 
   unset -v screen_dimension
   ;;
@@ -28,11 +28,11 @@ case "$1" in
   fi
 
   screen_dimension="$(slurp -d)"
-  grim -g "$screen_dimension" -t ppm - | satty -f - --fullscreen -o "${basedir}satty-$filename.$extension" &&
+  grim -g "$screen_dimension" -t ppm - | satty -f - --fullscreen -o "${dirname}satty-$filename.$ext" &&
     notify-send "Basic Screenshot" "Capture screenshot with satty successfully"
 
   unset -v screen_dimension
   ;;
 esac
 
-unset -v basedir filename
+unset -v dirname filename
