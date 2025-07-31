@@ -23,6 +23,7 @@ _darcs
 
 # Custom
 ^/nix
+^/scripts/bin
 ^/scripts/init
 ^/secrets    # Shhh!...
 
