@@ -80,6 +80,7 @@ DEV_NULL=(
   go
   neovim
   rustup # Why...
+  tmux
   zsh-syntax-highlighting
 )
 
@@ -154,6 +155,7 @@ AUR=(
   zoom
 
   # /dev/null
+  tmux-plugin-manager
   postman-bin
   yaak-bin
 )
