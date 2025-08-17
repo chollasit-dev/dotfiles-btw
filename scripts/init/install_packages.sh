@@ -76,6 +76,7 @@ CUSTOMIZATION=(
 
 DEV_NULL=(
   fnm-bin
+  ghc
   github-cli
   go
   neovim
@@ -155,8 +156,9 @@ AUR=(
   zoom
 
   # /dev/null
-  tmux-plugin-manager
+  ghcup
   postman-bin
+  tmux-plugin-manager
   yaak-bin
 )
 
