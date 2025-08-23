@@ -18,10 +18,9 @@
       "empty": "",
       "urgent": "",
       // Special
-      "note": "",
+      "terminal": "",
       "brave": "",
       "discord": "",
-      "line": "",
       "social": "",
       "game": "󰸸",
       "player": "",
@@ -29,14 +28,12 @@
     },
     "persistent-workspaces": {
       "*": [
-        "note",
+        "terminal",
         "brave",
         "discord",
-        "line",
         "social",
         "game",
         "player",
-        "scratchpad",
         "zoom"
       ]
     }
