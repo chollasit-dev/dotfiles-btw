@@ -52,6 +52,7 @@ ADDITIONAL_LOW_LEVEL=(
 )
 
 UTILITIES=(
+  bc
   hyprpicker
   mpv
   obs-studio
