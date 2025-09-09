@@ -28,7 +28,7 @@ case "$1" in
   fi
 
   screen_dimension="$(slurp -d)"
-  grim -g "$screen_dimension" -t ppm - | satty -f - --fullscreen -o "${dirname}satty-$filename.$ext" &&
+  grim -g "$screen_dimension" -t ppm - | satty -f - --fullscreen -o "${dirname}satty-$filename.png" &&
     notify-send "Basic Screenshot" "Capture screenshot with satty successfully"
 
   unset -v screen_dimension
