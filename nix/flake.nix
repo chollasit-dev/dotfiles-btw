@@ -11,8 +11,6 @@
     langs = with pkgs; [nixd];
     tools = with pkgs; [
       cloc
-      docker
-      docker-buildx
       lazydocker
       litecli
       pgcli

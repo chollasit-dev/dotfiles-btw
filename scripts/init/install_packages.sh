@@ -76,6 +76,9 @@ CUSTOMIZATION=(
 )
 
 DEV_NULL=(
+  docker
+  docker-buildx
+  docker-compose
   fnm-bin
   ghc
   github-cli
