@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -eu -o pipefail
 
 DIR=(
   "$HOME/Documents/"
@@ -10,13 +10,28 @@ DIR=(
   "$HOME/shared-configs/"
 )
 
-for dir in "${DIR[@]}"; do
-  if [ -d "$dir" ]; then
-    cd "$dir" && git pull origin main --set-upstream
-    if [ -f "$dir/.stow-local-ignore" ]; then
-      stow -Rv . --no-folding
+read -p "Do you wanna resync symbolic links (recommended for new files)? [y/n] " -r option
+case "$option" in
+"y" | "Y")
+  for dir in "${DIR[@]}"; do
+    if [ -d "$dir" ]; then
+      cd "$dir" && git pull origin main --set-upstream
+      if [ -f "$dir/.stow-local-ignore" ]; then
+        stow -Rv . --no-folding
+      fi
     fi
-  fi
-done
+  done
+  ;;
+"n" | "N")
+  for dir in "${DIR[@]}"; do
+    if [ -d "$dir" ]; then
+      cd "$dir" && git pull origin main --set-upstream
+    fi
+  done
+  ;;
+*)
+  echo "Invalid option"
+  ;;
+esac
 
 unset -v DIR
