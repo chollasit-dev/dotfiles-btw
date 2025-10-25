@@ -86,6 +86,7 @@ DEV_NULL=(
   neovim
   rustup # Why...
   tmux
+  uv
   zsh-syntax-highlighting
 )
 
