@@ -21,6 +21,9 @@ case "$option" in
       fi
     fi
   done
+  if command -v pass &>/dev/null; then
+    pass git pull origin main --set-upstream
+  fi
   ;;
 "n" | "N")
   for dir in "${DIR[@]}"; do
@@ -28,6 +31,9 @@ case "$option" in
       cd "$dir" && git pull origin main --set-upstream
     fi
   done
+  if command -v pass &>/dev/null; then
+    pass git pull origin main --set-upstream
+  fi
   ;;
 *)
   echo "Invalid option"
