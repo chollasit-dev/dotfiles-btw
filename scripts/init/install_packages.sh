@@ -164,6 +164,7 @@ AUR=(
   ghcup
   postman-bin
   tmux-plugin-manager
+  winboat-bin
   yaak-bin
 )
 
