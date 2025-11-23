@@ -10,7 +10,10 @@ DIR=(
   "$HOME/shared-configs/"
 )
 
-read -p "Do you wanna resync symbolic links (recommended for new files)? [y/n] " -r option
+# TODO: append errors to display in less when done
+_=""
+
+read -p "Should resync symbolic links (recommended for new files)? [y/n] " -r option
 case "$option" in
 "y" | "Y")
   for dir in "${DIR[@]}"; do
