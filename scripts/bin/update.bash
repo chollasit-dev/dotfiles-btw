@@ -16,7 +16,7 @@ command -v pnpm &>/dev/null && pnpm cache delete
 corepack cache clean && corepack install -g pnpm@latest && corepack enable
 
 pnpm up -i && pnpm up -iL
-rm pnpm-lock.yaml yarn.lock package-lock.json &>/dev/null
+rm pnpm-lock.yaml yarn.lock package-lock.json pnpm-workspace.yaml &>/dev/null
 pnpm up -gL
 pnpm approve-builds
 pnpm approve-builds -g
