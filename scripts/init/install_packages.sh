@@ -144,10 +144,10 @@ fi
 AUR=(
   # Utilities
   bemoji
-  fuzzel
-  wev # Debug Wayland events
-  xdg-desktop-portal-termfilechooser-git
   clipse
+  fuzzel
+  wev    # Debug Wayland events
+  wlrctl # wlroot utilities: move cursor via keyboard, etc.
 
   # Customization
   arc-gtk-theme
