@@ -84,6 +84,8 @@ DEV_NULL=(
   github-cli
   go
   neovim
+  podman
+  podman-compose
   rustup # Why...
   tmux
   uv
