@@ -87,6 +87,7 @@ DEV_NULL=(
   podman
   podman-compose
   rustup # Why...
+  sqlc
   tmux
   uv
   zsh-syntax-highlighting
@@ -163,7 +164,9 @@ AUR=(
   zoom
 
   # /dev/null
+  beekeeper-studio-bin
   ghcup
+  goose
   postman-bin
   tmux-plugin-manager
   yaak-bin
