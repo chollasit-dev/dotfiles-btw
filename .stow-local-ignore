@@ -21,11 +21,12 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
-# Custom
+
 ^/nix
 ^/scripts/bin
 ^/scripts/init
-^/secrets    # Shhh!...
+^/scripts/shared.bash
+^/secrets
 
 flake.*      # For tools use when customizing GTK widgets
 .*.md
