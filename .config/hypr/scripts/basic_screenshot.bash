@@ -1,41 +1,46 @@
 #!/usr/bin/env bash
 
-dirname="$HOME/Pictures/screenshots/"
-filename="$(date +%Y%m%d_%T)"
-ext="jpeg"
+set -eu -o pipefail
 
-mkdir -p "$dirname"
+APP_NAME="Basic Screenshot"
+CLIPBOARD_NAME="clipse"
+DIR="$HOME/Pictures/screenshots/"
+EXT="jpeg"
+OUTPUT_NAME="$(date +%Y%m%d_%T)"
+
+mkdir -p "$DIR"
+
+check_copy_to_clipboard() {
+  if ! command -v clipse &>/dev/null; then
+    notify-send "$APP_NAME" "$CLIPBOARD_NAME not installed, aborting..." && exit 1
+  fi
+}
 
 case "$1" in
 "fullscreen")
-  grim -t "$ext" "$dirname$filename.$ext" &&
-    grim -t "$ext" - | wl-copy &&
-    notify-send "Basic Screenshot" "Capture screenshot, copy to clipboard, and save at\r$dirname successfully"
+  grim -t "$EXT" "$DIR$OUTPUT_NAME.$EXT" &&
+    grim -t "$EXT" - | clipse -wl-store &&
+    notify-send "$APP_NAME" "Capture screenshot, copy to clipboard, and save to\r$DIR successfully"
   ;;
-"selection") # specify capture dimension
-  screen_dimension="$(slurp -d)"
 
-  grim -g "$screen_dimension" -t "$ext" "$dirname$filename.$ext" &&
-    grim -g "$screen_dimension" -t "$ext" - | wl-copy &&
-    notify-send "Basic Screenshot" "Capture screenshot, copy to clipboard, and save at\r$dirname successfully"
-
-  unset -v screen_dimension
+"selection")
+  SCREEN_DIMENSION="$(slurp -d)"
+  grim -g "$SCREEN_DIMENSION" -t "$EXT" "$DIR$OUTPUT_NAME.$EXT" &&
+    grim -g "$SCREEN_DIMENSION" -t "$EXT" - | clipse -wl-store &&
+    notify-send "$APP_NAME" "Capture screenshot, copy to clipboard, and save to\r$DIR successfully"
   ;;
-"annotation") # with annotation
+
+"annotation")
   if ! command -v satty &>/dev/null; then
-    notify-send "Basic Screenshot" "satty not installed!" &&
+    notify-send "$APP_NAME" "satty not installed, aborting..." &&
       exit 1
   fi
-
-  screen_dimension="$(slurp -d)"
-  grim -g "$screen_dimension" -t ppm - | satty -f - --fullscreen -o "${dirname}satty-$filename.png" &&
-    notify-send "Basic Screenshot" "Capture screenshot with satty successfully"
-
-  unset -v screen_dimension
+  SCREEN_DIMENSION="$(slurp -d)"
+  grim -g "$SCREEN_DIMENSION" -t ppm - | satty -f - -o "${DIR}satty-$OUTPUT_NAME.png" &&
+    notify-send "$APP_NAME" "Capture screenshot with satty successfully"
   ;;
+
 *)
-  notify-send "Basic Screenshot" "unknown option"
+  notify-send "$APP_NAME" "Unknown option"
   ;;
 esac
-
-unset -v dirname filename
