@@ -26,7 +26,7 @@ of use.
 - [ ] Setup single-user Nix package manager
 - [ ] Run `./shared-configs/scripts/update/update_fnm.zsh`
 - [ ] Create symlink at `/.node-version`
-- [ ] Run `./shared-configs/init/install_npm_packages.sh`
+- [ ] Run `./shared-configs/init/install_npm_packages.bash`
 - [ ] Set up password-store
 
 ### Devtools
