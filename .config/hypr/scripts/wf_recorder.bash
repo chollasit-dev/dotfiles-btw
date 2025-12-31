@@ -1,32 +1,38 @@
 #!/usr/bin/env bash
 
+set -eu -o pipefail
+
+APP="wf-recorder"
 CURRENT_DATE=$(date -u +%Y-%m-%d_%H-%M-%S)
+OUTPUT_PATH="$HOME/Videos/$CURRENT_DATE.mp4"
 
 if ! command -v wf-recorder &>/dev/null; then
-  notify-send "wf-recorder" "wf-recorder not installed, exiting..." &&
+  notify-send "$APP" "$APP not installed, aborting..." &&
     exit 1
 fi
 
-if pgrep -x wf-recorder >/dev/null; then
-  pkill -INT wf-recorder &&
-    notify-send "wf-recorder" "Recording stopped" &&
+if pgrep -x "$APP" >/dev/null; then
+  pkill -INT "$APP" &&
+    notify-send "$APP" "Recording stopped" &&
     exit 1
 fi
+
+mkdir -p "$(dirname "$OUTPUT_PATH")"
 
 case "$1" in
 "fullscreen")
-  notify-send "wf-recorder" "Recording started" &&
-    wf-recorder -f "$HOME/Videos/$CURRENT_DATE.mp4" -r 30
+  notify-send "$APP" "Recording started" &&
+    wf-recorder -f "$OUTPUT_PATH" -r 30
   ;;
 "selection")
   if ! command -v slurp &>/dev/null; then
-    notify-send "wf-recorder" "slurp not installed, aborting..."
+    notify-send "$APP" "slurp not installed, aborting..."
   else
-    notify-send "wf-recorder" "Recording started" &&
-      wf-recorder -g "$(slurp)" -f "$HOME/Videos/$CURRENT_DATE.mp4" -r 30
+    notify-send "$APP" "Recording started" &&
+      wf-recorder -g "$(slurp)" -f "$OUTPUT_PATH" -r 30
   fi
   ;;
 *)
-  notify-send "wf-recorder" "unknown option"
+  notify-send "$APP" "Unknown option"
   ;;
 esac
