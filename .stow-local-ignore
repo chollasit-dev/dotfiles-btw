@@ -29,4 +29,5 @@ _darcs
 ^/secrets
 
 flake.*      # For tools use when customizing GTK widgets
+.editorconfig
 .*.md
