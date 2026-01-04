@@ -11,11 +11,14 @@
     langs = with pkgs; [nixd];
     tools = with pkgs; [
       cloc
+      fastgron
+      goose
       jqp
       lazydocker
       litecli
       pgcli
       posting
+      sqlc
       tig
     ];
   in {
