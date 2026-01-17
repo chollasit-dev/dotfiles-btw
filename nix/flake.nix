@@ -19,6 +19,7 @@
       pgcli
       posting
       sqlc
+      tabiew
       tig
     ];
   in {
