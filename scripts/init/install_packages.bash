@@ -26,12 +26,8 @@ install_core_pacakges() {
   )
 
   local UTILITIES=(
-    bat
     bc
-    btop
-    carapace
     hyprpicker
-    lsd
     pass
     satty
     stow
@@ -41,18 +37,18 @@ install_core_pacakges() {
     wl-clipboard
   )
 
-  local TUI_FILE_MANAGER_WITH_DEPS=(
+  local YAZI_WITH_DEPS=(
     7zip
-    fd
+    # fd
     ffmpeg
-    fzf
+    # fzf
     imagemagick
-    jq
+    # jq
     poppler
-    resvg
-    ripgrep
-    yazi
-    zoxide
+    # resvg
+    # ripgrep
+    # yazi
+    # zoxide
   )
 
   local BROWSERS=(firefox)
@@ -66,7 +62,6 @@ install_core_pacakges() {
   # NOTE: `/usr/share/{icons,themes}`
   local CUSTOMIZATION=(
     hyprlock
-    starship
     swaync
     waybar
   )
@@ -75,15 +70,9 @@ install_core_pacakges() {
     docker
     docker-buildx
     docker-compose
-    ghc
-    github-cli
     go
-    neovim
     podman
     podman-compose
-    rustup # Why...
-    tmux
-    tree-sitter-cli
     uv
     zsh-syntax-highlighting
   )
@@ -92,7 +81,7 @@ install_core_pacakges() {
     "${FONTS[@]}" \
     "${PRIMITIVES[@]}" \
     "${UTILITIES[@]}" \
-    "${TUI_FILE_MANAGER_WITH_DEPS[@]}" \
+    "${YAZI_WITH_DEPS[@]}" \
     "${BROWSERS[@]}" \
     "${MEDIA[@]}" \
     "${CUSTOMIZATION[@]}" \
@@ -126,7 +115,6 @@ install_aur_packages() {
   local UTILITIES=(
     bemoji
     clipse
-    dnslookup-bin
     fuzzel
     wev
     wlrctl # wlroot utilities: move cursor via keyboard, etc.
@@ -155,9 +143,6 @@ install_aur_packages() {
 
   local DEV_NULL=(
     beekeeper-studio-bin
-    fnm-bin
-    ghcup
-    opencode-bin
     postman-bin
     tmux-plugin-manager
     yaak-bin
