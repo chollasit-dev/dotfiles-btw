@@ -24,7 +24,7 @@ _darcs
 
 ^/nix
 ^/scripts/bin
-^/scripts/init
+^/scripts/install
 ^/scripts/shared.bash
 ^/secrets
 
