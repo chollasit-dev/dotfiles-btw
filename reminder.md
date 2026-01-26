@@ -2,8 +2,8 @@
 
 There are some homemade scripts for specific setups. These can be found at
 
-- `~/dotfiles-arch/scripts/init/`
-- `~/shared-configs/scripts/init/`
+- `~/dotfiles-arch/scripts/install/`
+- `~/shared-configs/scripts/install/`
 
 Here are still needed to run first time setting up machine. But after that,
 these will use for setup to run periodically.
@@ -22,11 +22,9 @@ of use.
 
 ### Essential
 
-- [ ] Run `./shared-configs/init/add_yazi_theme.bash`
+- [ ] Run `./shared-configs/install/add_yazi_theme.bash`
 - [ ] Setup single-user Nix package manager
-- [ ] Run `./shared-configs/scripts/update/update_fnm.zsh`
-- [ ] Create symlink at `/.node-version`
-- [ ] Run `./shared-configs/init/install_npm_packages.bash`
+- [ ] Run `./shared-configs/install/install_npm_packages.bash`
 - [ ] Set up password-store
 
 ### Devtools
