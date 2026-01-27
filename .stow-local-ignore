@@ -23,6 +23,7 @@ _darcs
 
 
 ^/nix
+^/.tableplus
 ^/scripts/bin
 ^/scripts/install
 ^/scripts/shared.bash
