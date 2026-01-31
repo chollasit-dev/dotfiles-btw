@@ -7,7 +7,4 @@ install_aur_package_manager &&
   yay -Scc --noconfirm &&
   yay -Ycc --noconfirm
 
-rm "$HOME/.zsh_history" "$HOME/.bash_history" || :
-rm -rf "$HOME/.local/share/Trash/*" || :
-
-clipse -clear-all
+command -v clipse &>/dev/null && clipse -clear-all
