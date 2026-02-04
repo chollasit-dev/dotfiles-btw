@@ -74,6 +74,7 @@ install_core_pacakges() {
     podman
     podman-compose
     uv
+    waydroid
     zsh-syntax-highlighting
   )
 
