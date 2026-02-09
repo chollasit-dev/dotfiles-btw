@@ -26,6 +26,7 @@ _darcs
 ^/.tableplus
 ^/scripts/bin
 ^/scripts/install
+^/scripts/waydroid
 ^/scripts/shared.bash
 ^/secrets
 
