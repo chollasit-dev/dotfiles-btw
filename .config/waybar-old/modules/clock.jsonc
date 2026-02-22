@@ -1,8 +1,7 @@
 {
   "clock": {
     // https://fmt.dev/latest/syntax/#chrono-format-specifications
-    "format": "{:%a %F <span color='#b4befe'><b>%T</b></span> UTC%Z}",
-    "interval": 1,
+    "format": "{:%Y-%m-%d %H:%M} ",
     // TODO: Show dedicated calendar popup on click instead
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {

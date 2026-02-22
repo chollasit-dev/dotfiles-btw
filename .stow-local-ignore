@@ -23,6 +23,7 @@ _darcs
 
 
 ^/nix
+^/.config/.+-old$
 ^/.tableplus
 ^/scripts/bin
 ^/scripts/install

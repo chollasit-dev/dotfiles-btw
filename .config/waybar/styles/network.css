@@ -1,50 +1,49 @@
 #network {
-  padding: 0 1em;
-  border: 1.25px solid transparent;
-  border-radius: 0.5em;
-  background-image: linear-gradient(
-    to top,
-    alpha(@crust, 0.8),
-    alpha(@surface0, 0.6)
-  );
-  transition: all 0.2s;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-right: 1px solid @overlay0;
+  border-left: 1px solid @overlay0;
+  color: alpha(@text, 0.9);
+}
+
+#network.leaked.disabled,
+#network.leaked.disconnected,
+#network.leaked.ethernet,
+#network.leaked.wifi,
+#network.leaked {
+  padding-right: 0.75em;
+  color: alpha(@text, 0.6);
 }
 
 #network:hover {
-  background-color: @surface2;
+  color: @text;
+}
+
+#network.disabled {
+  background-color: @surface0;
+  color: alpha(@text, 0.7);
 }
 
 #network.disconnected {
-  border-color: @mantle;
+  color: alpha(@text, 0.7);
+}
+
+#network.disconnected:hover {
+  color: alpha(@text, 0.8);
 }
 
 #network.ethernet {
-  background-image: linear-gradient(
-    to top,
-    alpha(@mauve, 1),
-    alpha(@pink, 0.8)
-  );
-  background-color: @pink;
-  color: @mantle;
+  color: alpha(@pink, 0.9);
 }
 
 #network.ethernet:hover {
-  background-image: none;
-  background-color: @pink;
+  color: @pink;
 }
 
 #network.wifi {
-  border-color: transparent;
-  background-image: linear-gradient(
-    to top,
-    alpha(@blue, 0.8),
-    alpha(@lavender, 0.8)
-  );
-  background-color: @blue;
-  color: @mantle;
+  color: alpha(@lavender, 0.9);
 }
 
 #network.wifi:hover {
-  background-image: none;
-  background-color: @lavender;
+  color: @lavender;
 }

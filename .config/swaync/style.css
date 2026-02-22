@@ -28,7 +28,7 @@
 
 /* Semantic color mapping */
 @define-color cc-bg                 @base;
-@define-color noti-border-color     @overlay0;
+@define-color noti-border-color     @subtext0;
 @define-color slider-color          @overlay0;
 @define-color slider-border-color   @overlay1;
 @define-color slider-border-darker  @surface1;
@@ -78,7 +78,7 @@
 
 .notification-row .notification-background .notification {
   /* Actual notification */
-  border: 2px solid @noti-border-color;
+  border: 1px solid @noti-border-color;
   border-radius: 0.5rem;
   background: @noti-bg;
   transition: background 0.15s ease-in-out;
@@ -405,8 +405,8 @@
 .control-center {
   /* Control center contains old notifications + widgets */
   padding: 0.5rem;
-  border: 2px solid alpha(@noti-border-color, 0.75);
-  border-radius: 0.75rem;
+  border: 1px solid @noti-border-color;
+  border-radius: 0;
   background: @cc-bg;
   color: @text-color;
 }
@@ -469,7 +469,7 @@
 
 .widget-title > button {
   /* Clear all */
-  border: 2px solid @slider-border-darker;
+  border: 1px solid @slider-border-darker;
   border-radius: 0.5rem;
   background: @noti-bg;
   box-shadow: none;
@@ -528,7 +528,7 @@
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
-  border: 2px solid @noti-border-color;
+  border: 1px solid @noti-border-color;
   border-radius: 0.5rem;
   background: @noti-bg;
   box-shadow: 0 1px 2px 1px alpha(@shadow, 0.3);

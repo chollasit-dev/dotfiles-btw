@@ -1,19 +1,12 @@
 #clock {
-  padding: 0 1em;
-  border: none;
-  border-radius: 0.5em;
-  background-image: linear-gradient(
-    to top,
-    alpha(@mauve, 1),
-    alpha(@pink, 0.8)
-  );
-  background-color: @pink;
-  color: @mantle;
-  transition-duration: 0.2s;
-  transition-property: all;
+  padding-right: 1.25em;
+  padding-left: 1em;
+  border-right: 1px solid @overlay0;
+  border-left: 1px solid @overlay0;
+  background-color: alpha(@surface0, 0.8);
+  color: alpha(@text, 0.9);
 }
 
 #clock:hover {
-  background-image: none;
-  background-color: @pink;
+  color: @text;
 }

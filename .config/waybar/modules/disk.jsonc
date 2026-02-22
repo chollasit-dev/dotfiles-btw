@@ -1,0 +1,13 @@
+{
+  "disk": {
+    "format": "{specific_used:0.1f}/{specific_total:0.1f} GiB ",
+    "path": "/home",
+    "states": {
+      "medium": 50,
+      "critical": 90,
+      "warning": 75
+    },
+    "tooltip-format": "$HOME {percentage_used}% used, {specific_free:0.1f}GiB left",
+    "unit": "GiB"
+  }
+}

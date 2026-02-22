@@ -1,13 +1,17 @@
-#temperature {
-  padding-right: 0.75em;
+#disk {
+  padding-right: 1em;
   padding-left: 0.75em;
   border-right: 1px solid @overlay0;
 }
 
-#temperature.warning {
+#disk.medium {
+  color: @pink;
+}
+
+#disk.warning {
   color: @yellow;
 }
 
-#temperature.critical {
+#disk.critical {
   color: @red;
 }

@@ -1,26 +1,29 @@
 #custom-notification {
-  padding: 0 1em;
-  border: 1.25px solid alpha(@mantle, 0.8);
-  border-radius: 0.5em;
-  background-image: linear-gradient(
-    to top,
-    alpha(@crust, 0.8),
-    alpha(@surface0, 0.6)
-  );
-  transition: all 0.2s;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  color: alpha(@text, 0.9);
 }
 
 #custom-notification:hover {
-  background-color: @surface2;
+  color: @text;
 }
 
 #custom-notification.notification {
-  border-color: alpha(@pink, 0.8);
+  padding-right: 0.825em;
+  background-color: @crust;
+  color: alpha(@pink, 0.9);
+}
+
+#custom-notification.notification:hover {
+  color: @pink;
 }
 
 #custom-notification.dnd-notification {
-  border-color: alpha(@surface2, 0.6);
-  background-image: none;
-  background-color: alpha(@text, 0.8);
-  color: @surface1;
+  padding-right: 0.825em;
+  background-color: @crust;
+  color: alpha(@lavender, 0.9);
+}
+
+#custom-notification.dnd-notification:hover {
+  color: @lavender;
 }

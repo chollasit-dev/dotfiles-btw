@@ -2,20 +2,22 @@
   "network": {
     "family": "ipv4_6",
     "format": "",
-    "format-disabled": "",
+    "format-disabled": "",
     "format-disconnected": "󰤭",
-    "format-ethernet": "{bandwidthTotalOctets} 󱚻 | ",
-    "format-wifi": "{bandwidthTotalOctets} 󱚻 | 󰤥",
+    "format-ethernet": "{bandwidthTotalOctets} ",
+    "format-wifi": "{bandwidthTotalOctets} ({signalStrength}%) 󰤥",
+    "format-alt": "{bandwidthUpOctets} 󰕒 {bandwidthDownOctets} 󰇚",
     "format-icons": [
       "󰤟",
       "󰤢",
       "󰤨"
     ],
-    "format-alt": "{bandwidthUpOctets} 󱚺 | {bandwidthDownOctets} 󱚶",
-    "interval": 5,
+    "interval": 4,
     "on-click-right": "kitty -T '󰤥  Network Manager' zsh -c nmtui",
-    "tooltip-format": "{ifname} via {gwaddr}",
-    "tooltip-format-ethernet": "  {ipaddr}  /{cidr}\r󱚶  {bandwidthDownBytes}",
-    "tooltip-format-wifi": "{essid} | {signalStrength}% 󰤥"
+    "tooltip-format-ethernet": "{ifname}\r{ipaddr}{cidr}\rvia {gwaddr}",
+    "tooltip-format-wifi": "{essid} @{frequency} ({signalStrength}% 󰣸)"
+  },
+  "network#leaked": {
+    "format": "{ipaddr} Leak"
   }
 }

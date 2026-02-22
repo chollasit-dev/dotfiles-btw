@@ -1,0 +1,42 @@
+#pulseaudio {
+  padding: 0 1em;
+  border: 1.25px solid transparent;
+  border-radius: 0.5em;
+  background-image: linear-gradient(
+    to top,
+    alpha(@mauve, 1),
+    alpha(@pink, 0.8)
+  );
+  background-color: @pink;
+  color: @mantle;
+  transition-duration: 0.2s;
+  transition-property: all;
+}
+
+#pulseaudio:hover {
+  background-image: none;
+  background-color: @pink;
+}
+
+#pulseaudio.bluetooth {
+  border-color: transparent;
+  background-image: linear-gradient(
+    to top,
+    alpha(@blue, 0.8),
+    alpha(@lavender, 0.8)
+  );
+  background-color: @blue;
+}
+
+#pulseaudio.bluetooth:hover {
+  background-image: none;
+  background-color: @lavender;
+}
+
+#pulseaudio.muted,
+#pulseaudio.source-muted {
+  border-color: alpha(@surface2, 0.6);
+  background-image: none;
+  background-color: alpha(@text, 0.8);
+  color: @surface1;
+}
