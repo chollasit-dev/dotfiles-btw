@@ -19,7 +19,10 @@
 
 tooltip,
 window#waybar {
-  border: 1px solid @overlay0;
+  border-top: 1px solid @overlay0;
+  border-right: 1px solid @overlay0;
+  border-bottom: 0.5px solid @overlay0;
+  border-left: 1px solid @overlay0;
   border-radius: 0;
   background-color: alpha(@base, 0.9);
 }

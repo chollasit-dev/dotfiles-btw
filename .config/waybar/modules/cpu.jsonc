@@ -1,0 +1,10 @@
+{
+  "cpu": {
+    "format": "{usage}% {avg_frequency}GHz ",
+    "states": {
+      "medium": 15,
+      "warning": 75,
+      "critical": 90
+    }
+  }
+}
