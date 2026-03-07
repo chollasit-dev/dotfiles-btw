@@ -34,6 +34,8 @@ install_core_pacakges() {
     tldr
     udiskie # Auto mount/unmount handler
     wf-recorder
+    wine
+    winetricks
     wl-clipboard
   )
 
