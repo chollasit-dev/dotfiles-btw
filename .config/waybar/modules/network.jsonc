@@ -18,6 +18,8 @@
     "tooltip-format-wifi": "{essid} @{frequency} ({signalStrength}% 󰣸)"
   },
   "network#leaked": {
-    "format": "{ipaddr} Leak"
+    "format": "{ipaddr} Leak",
+    "format-disabled": "No Leak",
+    "format-disconnected": "Leak?"
   }
 }
