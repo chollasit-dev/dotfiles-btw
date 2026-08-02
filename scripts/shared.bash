@@ -17,10 +17,3 @@ install_aur_package_manager() {
       yay -Y --devel --save
   fi
 }
-
-install_symlink_farm() {
-  if ! command -v stow &>/dev/null; then
-    install_aur_package_manager &&
-      yay -S stow --disable-download-timeout --noconfirm --sudoloop
-  fi
-}

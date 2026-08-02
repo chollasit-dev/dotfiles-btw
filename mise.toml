@@ -1,0 +1,17 @@
+# Taplo LSP schema specification
+#:schema https://mise.en.dev/schema/mise.json
+
+[settings]
+dotfiles.root = "~/dotfiles-arch"
+dotfiles.default_mode = "symlink"
+
+
+[dotfiles]
+"~/.config" = { mode = "symlink-each" }
+"~/.local" = { mode = "symlink-each" }
+"~/.tableplus" = { mode = "symlink-each" }
+"~/init" = {}
+"~/scripts/profile" = { mode = "symlink-each" }
+
+"~/.zprofile" = {}
+"~/.gtkrc-2.0" = {}
