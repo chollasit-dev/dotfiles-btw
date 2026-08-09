@@ -5,26 +5,30 @@ set -eu -o pipefail
 # shellcheck source=../shared.bash
 source "$(dirname "$(dirname "$0")")/shared.bash"
 
-fetch_remote() {
+goto_directory() {
+  cd "$1" || {
+    echo "[sync.bash] Failed to change CWD to $1, skip resyncing for that directory..." >&2 &&
+      return 1
+  }
+}
+
+pull_remote() {
+  git pull origin main --set-upstream || {
+    echo "[sync.bash] Failed to pull update from remote for $1" >&2 &&
+      return 1
+  }
   {
-    [ -d "$1" ] &&
-      cd "$1" &&
-      git pull origin main --set-upstream &&
-      [ ! -f "./.gitmodules" ] || {
+    [ ! -f "./.gitmodules" ] || {
       echo "[sync.bash] Submodule repository found, try updating..." &&
         git submodule update --remote ||
-        echo "[sync.bash] Failed to update submodule from remote at parent $1"
+        echo "[sync.bash] Failed to update submodule from remote at parent $1" >&2
     }
-  } || {
-    echo "[sync.bash] Failed to fetch update from remote for $1" >&2 &&
-      return 1
   }
 }
 
 DIRS=(
   "$HOME/Documents/"
   "$HOME/dotfiles-arch/"
-  "$HOME/dotfiles-btw/"
   "$HOME/gnupg"
   "$HOME/shared-configs/"
 )
@@ -33,32 +37,29 @@ read -p "Should resync symlinks (recommended for new files)? [y/n] " -r resync_s
 case "$resync_symlink_opts" in
 "y" | "Y")
   for dir in "${DIRS[@]}"; do
-    fetch_remote "$dir" || continue
+    goto_directory "$dir" || continue
+    pull_remote "$dir" || continue
     {
-      command -v stow &>/dev/null || {
-        echo "[sync.bash] GNU Stow not found, skip resyncing symlinks..." >&2 && continue
+      command -v mise &>/dev/null || {
+        echo "[sync.bash] Mise not found, skip resyncing symlinks..." >&2 && continue
       }
-      [ -f "$dir/.stow-local-ignore" ] || {
-        echo "[sync.bash] Stow ignore file not found" >&2 &&
-          echo "[sync.bash] This may not meant to be stowed, skip resyncing symlinks at $dir" >&2 &&
+
+      [ -f "$dir/mise.toml" ] || {
+        echo "[sync.bash] mise.toml not found" >&2 &&
+          echo "[sync.bash] This directory dotfiles may not meant to be managed, skip resyncing symlinks at $dir" >&2 &&
           continue
       }
-      if [ "$(git status --short | wc -l)" != 0 ]; then
-        git status --short &&
-          echo "[sync.bash] Working directory $dir is dirty" &&
-          read -p "Import existing files into stow package? [y/n] " -r stow_adopt_opts
-        case "$stow_adopt_opts" in
-        "y" | "Y") stow . --no-folding --restow --verbose --adopt ;;
-        "n" | "N") stow . --no-folding --restow --verbose ;;
-        esac
-      fi
-    } || echo "[sync.bash] Failed to restow symlinks at $dir" >&2
+
+      mise dotfiles apply
+
+    } || echo "[sync.bash] Failed to resync symlinks at $dir" >&2
   done
   ;;
 
 "n" | "N")
   for dir in "${DIRS[@]}"; do
-    fetch_remote "$dir" || continue
+    goto_directory "$dir" || continue
+    pull_remote "$dir" || continue
   done
   ;;
 
@@ -68,5 +69,9 @@ case "$resync_symlink_opts" in
 esac
 
 if command -v pass &>/dev/null; then
-  pass git pull origin main --set-upstream
+  pass git pull origin main --set-upstream || {
+    echo "[sync.bash.pass] Failed to pull update from remote" >&2 && exit 1
+  }
+  [ "$(pass git diff main..origin/main --compact-summary | wc -l)" -gt 0 ] &&
+    echo "[sync.bash.pass] Local changes found, do not forget to push to remote"
 fi
