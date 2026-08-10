@@ -5,6 +5,7 @@ set -eu -o pipefail
 # shellcheck source=../shared.bash
 source "$(dirname "$(dirname "$0")")/shared.bash"
 
+# Git Repository
 goto_directory() {
   cd "$1" || {
     echo "[sync.bash] Failed to change CWD to $1, skip resyncing for that directory..." >&2 &&
@@ -68,6 +69,7 @@ case "$resync_symlink_opts" in
   ;;
 esac
 
+# Pass
 if command -v pass &>/dev/null; then
   pass git pull origin main --set-upstream || {
     echo "[sync.bash.pass] Failed to pull update from remote" >&2 && exit 1
@@ -75,3 +77,14 @@ if command -v pass &>/dev/null; then
   [ "$(pass git diff main..origin/main --compact-summary | wc -l)" -gt 0 ] &&
     echo "[sync.bash.pass] Local changes found, do not forget to push to remote"
 fi
+
+# Desktop Entry
+command -v update-desktop-database &>/dev/null || {
+  echo "[sync.bash.desktop] update-desktop-database not found, skip updating desktop entry cache..." >&2 &&
+    exit 1
+}
+
+update-desktop-database "$HOME/.local/share/applications/" || {
+  echo "[sync.bash.desktop] Failed to update desktop entry cache" >&2 &&
+    exit 1
+}
