@@ -1,0 +1,6 @@
+# Taplo LSP schema specification
+#:schema https://json.schemastore.org/stylua.json
+
+line_endings = "Unix"
+indent_type = "Spaces"
+indent_width = 2
