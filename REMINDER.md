@@ -15,15 +15,11 @@ these will use for setup to run periodically.
 Here is a quick reminder for TODOs that should be done at the minimum for ease
 of use.
 
-> [!NOTE]
->
-> Install Oh my Zsh first! It will definitely help ease of setting the machine
-> up.
-
 ### Essential
 
+- [ ] Install Oh my Zsh
 - [ ] Run `./shared-configs/install/add_yazi_theme.bash`
-- [ ] Setup single-user Nix package manager
+- [ ] Install single-user Nix package manager
 - [ ] Run `./shared-configs/install/install_npm_packages.bash`
 - [ ] Set up password-store
 
