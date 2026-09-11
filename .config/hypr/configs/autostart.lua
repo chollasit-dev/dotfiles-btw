@@ -1,25 +1,19 @@
------------------
---- AUTOSTART ---
------------------
-
--- Notifications daemons, status bars, etc.
--- Or your favorite apps at launch
+-- Notifications , status bars, any apps at launch, etc.
 
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 
 hl.on("hyprland.start", function()
   hl.exec_cmd("udiskie")
-
-  hl.exec_cmd("kitty", { workspace = "special:terminal silent" })
-  hl.exec_cmd("brave", { workspace = "special:brave silent" })
-
   hl.exec_cmd("clipse -listen")
   hl.exec_cmd("waybar")
 end)
 
--- Top-level exec_cmd runs on startup and again on every config reload
--- (equivalent of the old `exec =` keyword)
+-- Top-level runs on startup and config reload
 hl.exec_cmd("hyprctl setcursor catppuccin-mocha-dark-cursors 32")
 hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme catppuccin-mocha-dark-cursors")
-hl.exec_cmd('gsettings set org.gnome.desktop.interface gtk-theme "catppuccin-mocha-pink-standard+default-xhdpi"') -- GTK3
-hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme prefer-dark") -- GTK4
+
+-- GTK3
+hl.exec_cmd('gsettings set org.gnome.desktop.interface gtk-theme "catppuccin-mocha-pink-standard+default-xhdpi"')
+
+-- GTK4
+hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme prefer-dark")
