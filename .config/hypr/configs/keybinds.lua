@@ -1,7 +1,3 @@
-----------------
---- KEYBINDS ---
-----------------
-
 -- https://wiki.hypr.land/Configuring/Basics/Binds/
 
 local MOD = "SUPER"
@@ -11,21 +7,24 @@ local menu = "fuzzel"
 local notiCenter = "swaync-client"
 
 -- Builds a bind key string from space-separated mods, e.g.
+-- ```lua
 -- chord("CTRL SHIFT", "F1") -> "CTRL + SHIFT + F1"
+-- ```
+
 local function chord(mods, key)
   if mods == "" then
     return key
   end
-  return (mods:gsub(" ", " + ")) .. " + " .. key
+  return string.gsub(mods, " ", " + ") .. " + " .. key
 end
 
---------------------
---- HACK: Global ---
---------------------
+--- Workaround
 
--- TODO: Move this under this specific devices.
+-- Low-profile keyboard
 
-local fnRemaps = {
+local low_profile_kbds = { "lofree-flow84", "dareu-ek868-bt-keyboard" } -- TODO: Check device name again
+
+local remaps = {
   { "XF86MonBrightnessDown", "F1" },
   { "XF86MonBrightnessUp", "F2" },
   { "XF86LaunchA", "F3" },
@@ -39,42 +38,28 @@ local fnRemaps = {
   { "XF86AudioLowerVolume", "F11" },
   { "XF86AudioRaiseVolume", "F12" },
 }
-local modCombos = { "", "SHIFT", "CTRL", "ALT", "CTRL SHIFT", "SHIFT ALT", "CTRL SHIFT ALT" }
 
-for _, remap in ipairs(fnRemaps) do
+local modCombos = {
+  "",
+  "SHIFT",
+  "CTRL",
+  "ALT",
+  "CTRL SHIFT",
+  "SHIFT ALT",
+  "CTRL ALT",
+  "CTRL SHIFT ALT",
+}
+
+for _, remap in ipairs(remaps) do
   for _, mods in ipairs(modCombos) do
-    hl.bind(chord(mods, remap[1]), hl.dsp.send_shortcut({ mods = mods, key = remap[2] }))
+    hl.bind(chord(mods, remap[1]), hl.dsp.send_shortcut({ mods = mods, key = remap[2] }), {
+      device = {
+        -- `true` means include binds for devices below, otherwise exclude
+        inclusive = true,
+        list = low_profile_kbds,
+      },
+    })
   end
-end
-
--------------
---- HACK: ---
--------------
-
--- Kitty
-
-for _, key in ipairs({ "Up", "Down", "Prior", "Next", "Home", "End" }) do
-  hl.bind(
-    chord("CTRL SHIFT", "KP_" .. key),
-    hl.dsp.send_shortcut({
-      mods = "CTRL SHIFT",
-      key = key,
-      window = "class:^(kitty)$",
-    })
-  )
-end
-
--- Firefox
-
-for _, key in ipairs({ "Prior", "Next" }) do
-  hl.bind(
-    chord("CTRL SHIFT", "KP_" .. key),
-    hl.dsp.send_shortcut({
-      mods = "CTRL SHIFT",
-      key = key,
-      window = "class:^(firefox)$",
-    })
-  )
 end
 
 -------------------------
