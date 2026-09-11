@@ -1,28 +1,11 @@
 -- https://wiki.hypr.land/Configuring/
 
-require("configs/variables") -- NOTE: Import first
+require("configs/autostart")
 require("configs/keybinds")
+require("configs/monitors")
+require("configs/variables")
 require("configs/windows")
 require("configs/workspaces")
-require("configs/autostart")
-
-----------------
---- MONITORS ---
-----------------
-
--- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-
--- Best compatibility with any (plug and play)
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
-hl.monitor({ output = "eDP-1", mode = "preferred", position = "auto-left", scale = 1.2 })
-
-hl.config({
-  xwayland = {
-    force_zero_scaling = true,
-  },
-})
-
-hl.env("GDK_SCALE", "1")
 
 -------------------
 --- PERMISSIONS ---
