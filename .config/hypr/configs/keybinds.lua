@@ -85,36 +85,6 @@ for _, remap in ipairs(dareu_remaps) do
   })
 end
 
--------------
---- HACK: ---
--------------
-
--- Kitty
-
-for _, key in ipairs({ "Up", "Down", "Prior", "Next", "Home", "End" }) do
-  hl.bind(
-    chord("CTRL SHIFT", "KP_" .. key),
-    hl.dsp.send_shortcut({
-      mods = "CTRL SHIFT",
-      key = key,
-      window = "class:^(kitty)$",
-    })
-  )
-end
-
--- Firefox
-
-for _, key in ipairs({ "Prior", "Next" }) do
-  hl.bind(
-    chord("CTRL SHIFT", "KP_" .. key),
-    hl.dsp.send_shortcut({
-      mods = "CTRL SHIFT",
-      key = key,
-      window = "class:^(firefox)$",
-    })
-  )
-end
-
 -------------------------
 --- Vim-like Keybinds ---
 -------------------------
