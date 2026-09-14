@@ -19,13 +19,18 @@ local function chord(mods, key)
   return string.gsub(mods, " ", " + ") .. " + " .. key
 end
 
---------------------
---- HACK: Global ---
---------------------
+--[[
+Workaround
+]]
 
--- TODO: Move this under this specific devices.
+-- Low-profile keyboard
 
-local fnRemaps = {
+local dareu_kbd = "dareu-ek868-bt-keyboard"
+local lofree = "lofree-flow84"
+
+local low_profile_kbds = { lofree, dareu_kbd } -- TODO: Check device name again
+
+local remaps = {
   { "XF86MonBrightnessDown", "F1" },
   { "XF86MonBrightnessUp", "F2" },
   { "XF86LaunchA", "F3" },
@@ -39,12 +44,45 @@ local fnRemaps = {
   { "XF86AudioLowerVolume", "F11" },
   { "XF86AudioRaiseVolume", "F12" },
 }
-local modCombos = { "", "SHIFT", "CTRL", "ALT", "CTRL SHIFT", "SHIFT ALT", "CTRL SHIFT ALT" }
 
-for _, remap in ipairs(fnRemaps) do
-  for _, mods in ipairs(modCombos) do
-    hl.bind(chord(mods, remap[1]), hl.dsp.send_shortcut({ mods = mods, key = remap[2] }))
+local mod_combos = {
+  "",
+  "SHIFT",
+  "CTRL",
+  "ALT",
+  "CTRL SHIFT",
+  "SHIFT ALT",
+  "CTRL ALT",
+  "CTRL SHIFT ALT",
+}
+
+for _, remap in ipairs(remaps) do
+  for _, mods in ipairs(mod_combos) do
+    hl.bind(chord(mods, remap[1]), hl.dsp.send_shortcut({ mods = mods, key = remap[2] }), {
+      device = {
+        -- `true` means include binds for devices below, otherwise exclude
+        inclusive = true,
+        list = low_profile_kbds,
+      },
+    })
   end
+end
+
+-- Devices specific
+
+local dareu_remaps = {
+  { "ALT + Escape", { "", "Escape" } },
+  { "Escape", { "", "grave" } },
+}
+
+for _, remap in ipairs(dareu_remaps) do
+  hl.bind(remap[1], hl.dsp.send_shortcut({ mods = remap[2][1], key = remap[2][2] }), {
+    device = {
+      -- `true` means include binds for devices below, otherwise exclude
+      inclusive = true,
+      list = { dareu_kbd },
+    },
+  })
 end
 
 -------------
