@@ -1,22 +1,22 @@
-----------------
---- KEYBINDS ---
-----------------
-
 -- https://wiki.hypr.land/Configuring/Basics/Binds/
 
 local MOD = "SUPER"
-
 local terminal = "kitty"
-local menu = "fuzzel"
-local notiCenter = "swaync-client"
+local launcher = "fuzzel"
+local noti_center = "swaync-client"
 
--- Builds a bind key string from space-separated mods, e.g.
--- chord("CTRL SHIFT", "F1") -> "CTRL + SHIFT + F1"
+--[[
+Build a bind key string from space-separated mods, e.g.,
+
+```lua
+chord("CTRL SHIFT", "F1") -> "CTRL + SHIFT + F1"
+```
+]]
 local function chord(mods, key)
   if mods == "" then
     return key
   end
-  return (mods:gsub(" ", " + ")) .. " + " .. key
+  return string.gsub(mods, " ", " + ") .. " + " .. key
 end
 
 --------------------
@@ -150,7 +150,7 @@ hl.bind(MOD .. " + Q", hl.dsp.exec_cmd(terminal))
 hl.bind(MOD .. " + T", hl.dsp.exec_cmd(terminal .. " -T '󰂯 Bluetui' zsh -c bluetui"))
 hl.bind(MOD .. " + SHIFT + T", hl.dsp.exec_cmd(terminal .. " -T '󰤥  Network Manager TUI' zsh -c nmtui"))
 hl.bind(MOD .. " + V", hl.dsp.exec_cmd(terminal .. " --class=clipse -T '󰅇  Clipse' zsh -c clipse"))
-hl.bind(MOD .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(MOD .. " + R", hl.dsp.exec_cmd(launcher))
 hl.bind(MOD .. " + period", hl.dsp.exec_cmd("bemoji -t"))
 hl.bind(MOD .. " + I", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(MOD .. " + Print", hl.dsp.exec_cmd('~/.config/hypr/scripts/basic_screenshot.bash "fullscreen"'))
@@ -206,7 +206,7 @@ hl.bind(MOD .. " + SHIFT + bracketleft", function()
   hl.dispatch(hl.dsp.workspace.toggle_special())
   hl.dispatch(hl.dsp.workspace.toggle_special())
 end)
-hl.bind(MOD .. " + slash", hl.dsp.exec_cmd(notiCenter .. " -t -sw"))
+hl.bind(MOD .. " + slash", hl.dsp.exec_cmd(noti_center .. " -t -sw"))
 hl.bind(MOD .. " + Space", hl.dsp.cursor.move_to_corner({ corner = 1 })) -- Bottom right
 hl.bind(MOD .. " + SHIFT + Space", hl.dsp.window.center())
 
