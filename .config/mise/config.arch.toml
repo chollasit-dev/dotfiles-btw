@@ -1,0 +1,28 @@
+#:schema https://mise.en.dev/schema/mise.json
+
+[vars]
+root = "dotfiles-arch"
+
+[bootstrap.repos]
+"~/dotfiles-arch/" = { url = "git@github.com:chollasit-dev/dotfiles-btw.git" }
+
+[settings.dotfiles]
+default_mode = "symlink"
+
+[dotfiles]
+"~/.config/clipse" = { source = "~/dotfiles-arch/.config/clipse", mode = "symlink-each" }
+"~/.config/fuzzel" = { source = "~/dotfiles-arch/.config/fuzzel", mode = "symlink-each" }
+"~/.config/gtk-3.0" = { source = "~/dotfiles-arch/.config/gtk-3.0", mode = "symlink-each" }
+"~/.config/gtk-4.0" = { source = "~/dotfiles-arch/.config/gtk-4.0", mode = "symlink-each" }
+"~/.config/hypr" = { source = "~/dotfiles-arch/.config/hypr", mode = "symlink-each" }
+"~/.config/kitty" = { source = "~/dotfiles-arch/.config/kitty", mode = "symlink-each" }
+"~/.config/mise" = { source = "~/dotfiles-arch/.config/mise", mode = "symlink-each" }
+"~/.config/mpv" = { source = "~/dotfiles-arch/.config/mpv", mode = "symlink-each" }
+"~/.config/swaync" = { source = "~/dotfiles-arch/.config/swaync", mode = "symlink-each" }
+"~/.config/waybar" = { source = "~/dotfiles-arch/.config/waybar", mode = "symlink-each" }
+"~/.local/share/applications" = { source = "~/dotfiles-arch/.local/share/applications", mode = "symlink-each" }
+"~/.tableplus" = { source = "~/dotfiles-arch/.tableplus", mode = "symlink-each" }
+"~/init" = { source = "~/dotfiles-arch/init" }
+"~/scripts/profile" = { source = "~/dotfiles-arch/scripts/profile", mode = "symlink-each" }
+"~/.zprofile" = { source = "~/dotfiles-arch/.zprofile" }
+"~/.gtkrc-2.0" = { source = "~/dotfiles-arch/.gtkrc-2.0" }
