@@ -30,8 +30,6 @@ install_core_pacakges() {
     hyprpicker
     pass
     satty
-    stow
-    tldr
     udiskie # Auto mount/unmount handler
     wf-recorder
     wine
@@ -40,17 +38,7 @@ install_core_pacakges() {
   )
 
   local YAZI_WITH_DEPS=(
-    7zip
-    # fd
     ffmpeg
-    # fzf
-    imagemagick
-    # jq
-    poppler
-    # resvg
-    # ripgrep
-    # yazi
-    # zoxide
   )
 
   local BROWSERS=(firefox)
@@ -72,12 +60,9 @@ install_core_pacakges() {
     docker
     docker-buildx
     docker-compose
-    go
     podman
     podman-compose
-    uv
     waydroid
-    zsh-syntax-highlighting
   )
 
   sudo pacman -Sy \
