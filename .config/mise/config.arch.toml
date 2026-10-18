@@ -22,7 +22,6 @@ default_mode = "symlink"
 "~/.config/waybar" = { source = "~/dotfiles-arch/.config/waybar", mode = "symlink-each" }
 "~/.local/share/applications" = { source = "~/dotfiles-arch/.local/share/applications", mode = "symlink-each" }
 "~/.tableplus" = { source = "~/dotfiles-arch/.tableplus", mode = "symlink-each" }
-"~/init" = { source = "~/dotfiles-arch/init" }
 "~/scripts/profile" = { source = "~/dotfiles-arch/scripts/profile", mode = "symlink-each" }
 "~/.zprofile" = { source = "~/dotfiles-arch/.zprofile" }
 "~/.gtkrc-2.0" = { source = "~/dotfiles-arch/.gtkrc-2.0" }
