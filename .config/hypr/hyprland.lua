@@ -1,5 +1,3 @@
--- https://wiki.hypr.land/Configuring/
-
 require("configs/autostart")
 require("configs/inputs")
 require("configs/keybinds")
@@ -12,7 +10,6 @@ require("configs/workspaces")
 --- PERMISSIONS ---
 -------------------
 
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Permissions/
 -- Changes require a Hyprland to restart and are not applied on-the-fly for
 -- security reasons
 
@@ -30,7 +27,6 @@ hl.config({
 --- LOOK AND FEEL ---
 ---------------------
 
--- https://wiki.hypr.land/Configuring/Basics/Variables/#general
 hl.config({
   general = {
     border_size = 1,
@@ -50,13 +46,11 @@ hl.config({
       border_overlap = true,
     },
 
-    -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before turn this on.
     allow_tearing = false,
 
     layout = "dwindle",
   },
 
-  -- https://wiki.hypr.land/Configuring/Basics/Variables/#decoration
   decoration = {
     dim_inactive = true,
     dim_modal = true,
@@ -90,7 +84,6 @@ hl.config({
   },
 })
 
--- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
 hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
 hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36, 1 } } })
 hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
@@ -115,12 +108,10 @@ hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "al
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
 
 hl.config({
-  -- https://wiki.hypr.land/Configuring/Layouts/Master-Layout/
   master = {
     new_status = "master",
   },
 
-  -- https://wiki.hypr.land/Configuring/Basics/Variables/#misc
   misc = {
     animate_manual_resizes = true,
     animate_mouse_windowdragging = true,

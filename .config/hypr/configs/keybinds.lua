@@ -1,5 +1,3 @@
--- https://wiki.hypr.land/Configuring/Basics/Binds/
-
 local MOD = "SUPER"
 local terminal = "kitty"
 local launcher = "fuzzel"
