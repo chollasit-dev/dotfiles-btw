@@ -132,8 +132,12 @@ hl.config({
     vrr = 1,
   },
 
+  binds = {
+    hide_special_on_workspace_change = true,
+  },
+
   cursor = {
-    inactive_timeout = 10,
+    inactive_timeout = 5,
     no_warps = true,
   },
 

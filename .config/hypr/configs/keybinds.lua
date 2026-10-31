@@ -202,24 +202,19 @@ hl.bind(MOD .. " + CTRL + 0", function()
   hl.config({ cursor = { zoom_factor = 1 } })
 end)
 
-------------------
---- Workspaces ---
-------------------
+--[[ Workspaces ]]
 
 -- Action
 hl.bind(MOD .. " + C", hl.dsp.window.close())
 hl.bind(MOD .. " + SHIFT + F", hl.dsp.window.float())
-hl.bind(MOD .. " + SHIFT + bracketleft", function()
-  -- Double toggle pulls the open special workspace onto the focused monitor
-  hl.dispatch(hl.dsp.workspace.toggle_special())
-  hl.dispatch(hl.dsp.workspace.toggle_special())
-end)
 hl.bind(MOD .. " + slash", hl.dsp.exec_cmd(noti_center .. " -t -sw"))
 hl.bind(MOD .. " + Space", hl.dsp.cursor.move_to_corner({ corner = 1 })) -- Bottom right
 hl.bind(MOD .. " + SHIFT + Space", hl.dsp.window.center())
 
 for i = 1, 9 do
-  hl.bind(MOD .. " + " .. i, hl.dsp.focus({ workspace = i }))
+  hl.bind(MOD .. " + " .. i, function()
+    hl.dispatch(hl.dsp.focus({ workspace = i }))
+  end)
   hl.bind(MOD .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 
