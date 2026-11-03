@@ -162,16 +162,25 @@ hl.bind(MOD .. " + ALT + Print", hl.dsp.exec_cmd('~/.config/hypr/scripts/basic_s
 hl.bind(MOD .. " + CTRL + Print", hl.dsp.exec_cmd('~/.config/hypr/scripts/wf_recorder.bash "fullscreen"'))
 hl.bind(MOD .. " + CTRL + SHIFT + Print", hl.dsp.exec_cmd('~/.config/hypr/scripts/wf_recorder.bash "selection"'))
 
------------------------
---- Windows manager ---
------------------------
+--[[
+Windows manager
+--]]
 
 -- Focus
 hl.bind(MOD .. " + SHIFT + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(MOD .. " + SHIFT + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(MOD .. " + SHIFT + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(MOD .. " + SHIFT + J", hl.dsp.focus({ direction = "down" }))
-hl.bind(MOD .. " + TAB", hl.dsp.window.cycle_next())
+hl.bind(MOD .. " + TAB", function()
+  local window = hl.get_active_window()
+  if not window then
+    return
+  end
+  hl.dsp.window.cycle_next({
+    floating = not window.floating,
+    tiled = window.floating,
+  })
+end)
 
 -- Resize
 hl.bind(MOD .. " + minus", hl.dsp.window.resize({ x = 0, y = -30, relative = true }), { repeating = true })
